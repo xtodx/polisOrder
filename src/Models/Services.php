@@ -17,4 +17,36 @@ class Services extends PolisModel
             return false;
         }
     }
+
+
+    static function find($id)
+    {
+        $data = self::sendRequest(self::$action . "/" . $id);
+        if ($data['data']) {
+            return $data['data'];
+        } else {
+            return false;
+        }
+    }
+
+    static function fields($service)
+    {
+
+        $data = self::sendRequest(self::$action . "/fieldsBlock/" . $service);
+        if ($data['data']) {
+            return $data['data'];
+        } else {
+            return false;
+        }
+    }
+
+    static function options($service)
+    {
+        $data = self::sendRequest(self::$action . "/options/" . $service);
+        if ($data['data']) {
+            return $data['data'];
+        } else {
+            return false;
+        }
+    }
 }
