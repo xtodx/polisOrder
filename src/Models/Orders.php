@@ -38,4 +38,14 @@ class Orders extends PolisModel
             return false;
         }
     }
+
+    static function sendMail($id)
+    {
+        $data = self::sendRequest(self::$action . "/sendMail/" . $id, "POST");
+        if ($data['status']) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
