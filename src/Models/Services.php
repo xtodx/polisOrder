@@ -21,7 +21,7 @@ class Services extends PolisModel
 
     static function find($id)
     {
-        $data = self::sendRequest(self::$action . "/" . $id);
+        $data = self::sendRequest(self::$action . "/sign/" . $id);
         if ($data['data']) {
             return $data['data'];
         } else {
