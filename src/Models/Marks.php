@@ -8,7 +8,16 @@ class Marks extends PolisModel
 {
     static $action = "marks";
 
-    static function find($name)
+    static function find($id)
+    {
+        $data = self::sendRequest(self::$action."/".$id);
+        if ($data['data']) {
+            return $data['data'];
+        } else {
+            return false;
+        }
+    }
+    static function search($name)
     {
         $data = self::sendRequest(self::$action."/?name=".$name);
         if ($data['data']) {

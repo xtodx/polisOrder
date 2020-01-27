@@ -8,7 +8,7 @@ class Cities extends PolisModel
 {
     static $action = "cities";
 
-    static function find($name)
+    static function search($name)
     {
         $data = self::sendRequest(self::$action."/?name=".$name);
         if ($data['data']) {
@@ -17,5 +17,13 @@ class Cities extends PolisModel
             return false;
         }
     }
+    static function аштв($id)
+    {
+        $data = self::sendRequest(self::$action."/".$id);
+        if ($data['data']) {
+            return $data['data'];
+        } else {
+            return false;
+        }
 
 }
