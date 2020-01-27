@@ -17,13 +17,13 @@ class Cities extends PolisModel
             return false;
         }
     }
-    static function аштв($id)
+    static function find($id)
     {
-        $data = self::sendRequest(self::$action."/".$id);
+        $data = self::sendRequest(self::$action . "/" . $id);
         if ($data['data']) {
             return $data['data'];
         } else {
             return false;
         }
-
+    }
 }
